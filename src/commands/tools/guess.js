@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, InteractionType, EmbedBuilder, MessageCollector, AttachmentBuilder } = require('discord.js');
 //let running = false;
 const runningMap = new Map();
-var x = "~x~x~";
+var x = "~~I changed this text after uploading to github, as this line would technically allow users to cheat the bot~~";
 
 const mongoose = require('mongoose');
 const scoreSchema = require('../../schemas/scoreschema.js');
