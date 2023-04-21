@@ -8,7 +8,7 @@ More information reguarding the bot and a discord invitation can be found at the
 https://watkin81.github.io/guessthecoaster.html
 
 ## Bot Commands:
-* /about - brings up this about page.
+* /about - brings up the about page which contains bot information.
 * /guess - play a round of GuessTheCoaster.
 * /profile - view the stats page of a player.
 * /top - view the leaderboard of local players.
