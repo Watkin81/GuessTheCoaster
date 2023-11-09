@@ -7,8 +7,7 @@ const CoasterModel = mongoose.model('CoasterModel', coasterSchema);
 
 notApproved = new EmbedBuilder()
                     .setTitle(`No Permission!`)
-                    .setDescription(`You do not have permission to run this command!
-                    If you have intrest in adding a coaster to the database please contact CreatorCreepy#6658!`)
+                    .setDescription(`You do not have permission to run this command!`)
                     .setColor(0xD0312D);
 
 module.exports = {
@@ -29,17 +28,17 @@ module.exports = {
         userId = interaction.user.id;
         console.log(userId);
         if (!(userId === "207199551646466059")) {
-            // you are not approved! die!
+            // checks if you are him
             return interaction.reply({ 
                 embeds: [notApproved],
-                ephemeral: true,
+                ephemeral: true
             });
         }
         const dif = interaction.options.getString("difficulty");
         if (!["e", "m", "h"].includes(dif)) {
             return interaction.reply({
                 embeds: [typoEmbed],
-                ephemeral: true,
+                ephemeral: true
             });
         }
         const name1 = interaction.options.getString("name1").toLowerCase();
@@ -88,10 +87,10 @@ module.exports = {
             }
           });
 
-        // create ui for the end of the addition so we can not be fucking stupid :)
+        // create ui for the end of the addition to double check all entered information
         doneEmbed = new EmbedBuilder()
                     .setTitle(`DATABASE UPDATED WITH INFORMATION:`)
-                    .setDescription(`If **ANY** of the below is incorrect, contact CreatorCreepy#6658 **INSTANTLY**,
+                    .setDescription(`If **ANY** of the below is incorrect, contact CreatorCreepy **INSTANTLY**,
                     as the creation of this KEY cannot be undone. Do not add further coasters until the mistake is fixed!\n
                     --=--
                     key: **${dif}${num}**
@@ -110,7 +109,7 @@ module.exports = {
             console.error(err);
             
             } else {
-            // Update the fields
+            // update the fields
             globalData.coasterCount = updatedCoasterCount
             if (dif === "e") {
                 globalData.easyCount = globalData.easyCount + 1;
@@ -122,7 +121,7 @@ module.exports = {
                 globalData.hardCount = globalData.hardCount + 1;
             }
 
-            // Save the updated document
+            // save the updated document
             globalData.save(function(err) {
                 if (err) {
                 console.error(err);
