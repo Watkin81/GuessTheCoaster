@@ -8,6 +8,7 @@ const globalSchema = new Schema({ // Global Data, saves count of every coaster d
   easyCount: { type: Number, required: true, default: 0 },
   mediumCount: { type: Number, required: true, default: 0 },
   hardCount: { type: Number, required: true, default: 0 },
+  contributers: { type: Array, required: true, default: ["207199551646466059", "69420"] } //userIDs of contributers
   //score: { type: Number, required: true, default: 0 },
 }, { versionKey: false });
 
