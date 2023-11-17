@@ -18,13 +18,13 @@ module.exports = (client) => {
                 console.log(`Command: ${command.data.name} has passed through handler.`);
             }
         }
-        const clientID = '1078900498054271047';
-        //const guildID = '278698483794575360';
+        const clientID = '1174847115344744602';
+        const guildID = '278698483794575360';
         const rest = new REST({ version: '10' }).setToken(process.env.token);
         try {
             console.log("Started refreshing application (/) commands.");
 
-            await rest.put(Routes.applicationCommands(clientID, /*guildID*/), { // REMOVE GUILDID
+            await rest.put(Routes.applicationCommands(clientID, guildID), {
                 body: client.commandArray,
             });
 
