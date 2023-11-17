@@ -19,9 +19,7 @@ module.exports = {
             .setTitle(`:roller_coaster: About GuessTheCoaster :roller_coaster:`)
             .setDescription(`GuessTheCoaster is a Discord Bot where Users have to Guess the Name of a Roller Coaster from a large selection of coaster images. Correct answers reward Credits and Completion which can be viewed on a User Profile or on Local/Global Leadboards.\n
             The Bot is coded in JavaScript with help from Nodejs, Discordjs, and Mongodb.\n
-            Created by CreatorCreepy. All images are taken either by me or by users of the bot!\n
-            If you like this bot, consider following my [Roller Coaster Instagram](https://www.instagram.com/roller.coaster.images/)!\n
-            `)
+            Created by CreatorCreepy. All images are taken either by me or by users of the bot!`)
             .setColor(0x9989F2)
             .setImage(url = bannerImages[randPath])
             //.setThumbnail(client.user.displayAvatarURL())
@@ -36,19 +34,16 @@ module.exports = {
             })
             .addFields([
                 {
-                    name: `Bot Commands`,
-                    value: `/about - *brings up this about page.*\n
-                    /guess - *play a round of GuessTheCoaster.*\n
-                    /profile - *view the stats page of a player.*\n
-                    /top - *view the leaderboard of local players.*\n
-                    /topall - *view the leaderboard of global players.*`,
+                    name: `Add Images :camera:`,
+                    value: `Send CreatorCreepy on discord any images you would like to see added to the bot. Please ensure they are pictures you have personally taken and are in a 1:1 aspect ratio!`,
                     inline: false
                 },
                 {
-                    name: `Bot Support`,
+                    name: `Bot Support :man_technologist:`,
                     value: `Please contact CreatorCreepy on discord if you come across any errors with the bot.\n
                     The GitHub for the Bot can be found at [github.com/Watkin81/GuessTheCoaster](https://github.com/Watkin81/GuessTheCoaster).\n
-		    The Website for the Bot can be found on [My Coaster Website](https://watkin81.github.io/guessthecoaster.html)!\n`,
+		    The Website for the Bot can be found on [My Coaster Website](https://watkin81.github.io/guessthecoaster.html) (Contains Invite Link).\n
+            If you like this bot, consider following my [Roller Coaster Instagram](https://www.instagram.com/roller.coaster.images/)!`,
                     inline: false
                 }
             ]);
