@@ -4,7 +4,7 @@ GuessTheCoaster is a Discord Bot created and owned by me where users have to gue
 
 The Bot is coded in **JavaScript** with help from Nodejs v18, Discordjs v14, and Mongodb.
 
-More information reguarding the bot and for a discord invitation, please check out the link below:
+For more information reguarding the bot and for a discord invitation, please check out the link below:
 https://watkin81.github.io/guessthecoaster.html
 
 ## Bot Commands:
