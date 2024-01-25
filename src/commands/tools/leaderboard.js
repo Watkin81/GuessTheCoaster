@@ -54,17 +54,19 @@ module.exports = {
 
             // GET USER INFO - TOP 10 COMPLETION SORTED QUERY
             const compResults = await Score.aggregate([
-                { $project: { userTag: 1, comp: 1, compInt: { $toInt: "$comp" }}},
-                { $sort: { compInt: -1}},
+                { $project: { userTag: 1, comp: 1, compInt: { $toInt: "$comp" }, compTime: { $ifNull: ["$compTime", 999999999999] } }},
+                { $sort: { compInt: -1, compTime: 1}},
                 { $limit: 10 }
             ]);
             
             topCompValues = compResults.map(result => result.compInt);
             topUserTags = compResults.map(result2 => result2.userTag);
+            //times = compResults.map(result => result.compTime);
 
             let compString = "";
             for (let i = 0; i < topCompValues.length; i++) {
                 //console.log('Comp Array: ', topCompValues[i]);
+                //console.log('time array: ', times[i]);
                 if (!topCompValues[i]) {
                     continue;
                 }
@@ -127,8 +129,8 @@ module.exports = {
             // GET USER INFO - TOP 10 COMPLETION SORTED QUERY - LOCAL GUILDID
             const compResultsL = await Score.aggregate([
                 { $match: { guildID: { $in: [guildId] } } }, // Filter by guildId
-                { $project: { userTag: 1, comp: 1, compInt: { $toInt: "$comp" }}},
-                { $sort: { compInt: -1}},
+                { $project: { userTag: 1, comp: 1, compInt: { $toInt: "$comp" }, compTime: { $ifNull: ["$compTime", 999999999999] } }},
+                { $sort: { compInt: -1, compTime: 1}},
                 { $limit: 10 }
             ]);
             

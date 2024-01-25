@@ -360,7 +360,7 @@ module.exports = {
             Score.findOne({ userID: userID })
             .then((userScore) => {
                 let newScoreValue = userScore ? userScore.score + creditWorth : creditWorth;
-                let bestStreak = userScore.streak;
+                let bestStreak = userScore?.streak || 0;
                 let gc = userScore ? userScore.gc : [];
                 let userBadges = userScore ? userScore.badges : [];
                 let completion = gc.length;
@@ -403,10 +403,13 @@ module.exports = {
               //console.log(`5userPFP: ${avatarURL}`);
 
               if (completion == coasterCount) { // if 100% previously
-                  if (usersBadges[2] = "false") {
-                      completionTime = Math.floor(Date.now() / 1000); // unix time for comp (not used yet)
+                  if ((usersBadges[2] = "false") || (completionTime == 999999999999)) {
+                      completionTime = Math.floor(Date.now() / 1000); // unix time for comp
                   }
                   usersBadges[2] = "true";
+              }
+              else {
+                completionTime = 999999999999; // make the time really big (unix won't hit this for a while lol)
               }
 
               if ((completion / coasterCount) >= 0.5) {
@@ -452,7 +455,7 @@ module.exports = {
 
             return Score.findOneAndUpdate(
                 { userID: userID }, 
-                { $set: { score: newScoreValue, streak: bestStreak, userTag: usersTag, gc: gc, comp: completion, guildID: guildIdArray, pfp: avatarURL, badges: usersBadges } }, 
+                { $set: { score: newScoreValue, streak: bestStreak, userTag: usersTag, gc: gc, comp: completion, guildID: guildIdArray, pfp: avatarURL, badges: usersBadges, compTime: completionTime } }, 
                 { new: true, upsert: true });
             })
             .then((finalScore) => {

@@ -14,7 +14,7 @@ module.exports = {
         .setName('about')
         .setDescription('Returns the About Page with Bot Information.'),
     async execute(interaction, client) {
-        randPath = Math.floor(Math.random() * 8); //here so that it randomized every time command is run.
+        randPath = Math.floor(Math.random() * 8); //randomize every time the command is run.
         const embed = new EmbedBuilder()
             .setTitle(`:roller_coaster: About GuessTheCoaster :roller_coaster:`)
             .setDescription(`GuessTheCoaster is a Discord Bot where Users have to Guess the Name of a Roller Coaster from a large selection of coaster images. Correct answers reward Credits and Completion which can be viewed on a User Profile or on Local/Global Leadboards.\n
@@ -39,11 +39,16 @@ module.exports = {
                     inline: false
                 },
                 {
+                    name: `Invite :link:`,
+                    value: `The Website for the Bot, as well as a discord bot invite link, can be found on [My Coaster Website](https://watkin81.github.io/guessthecoaster.html).`,
+                    inline: false
+                },
+                {
                     name: `Bot Support :man_technologist:`,
                     value: `Please contact CreatorCreepy on discord if you come across any errors with the bot.\n
                     The GitHub for the Bot can be found at [github.com/Watkin81/GuessTheCoaster](https://github.com/Watkin81/GuessTheCoaster).\n
-		    The Website for the Bot can be found on [My Coaster Website](https://watkin81.github.io/guessthecoaster.html) (Contains Invite Link).\n
-            If you like this bot, consider following my [Roller Coaster Instagram](https://www.instagram.com/roller.coaster.images/)!`,
+                    My other coaster game, StatRide, can be found at [watkin81.github.io/statride](https://watkin81.github.io/statride.html).\n
+                    **You can support this bot by following my [Roller Coaster Instagram](https://www.instagram.com/roller.coaster.images/)!**`,
                     inline: false
                 }
             ]);
